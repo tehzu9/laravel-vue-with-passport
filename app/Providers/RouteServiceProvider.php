@@ -39,7 +39,15 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapAuthApiRoutes();
+
+        $this->mapHomeApiRoutes();
+
+        $this->mapAclApiRoutes();
+
+        $this->mapSettingsApiRoutes();
+
+
     }
 
     /**
@@ -52,8 +60,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
     /**
@@ -66,8 +74,52 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace . '\API')
+            ->group(base_path('routes/api.php'));
     }
+
+    protected function mapAuthApiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('auth:api')
+            ->namespace($this->namespace . '\API\Auth')
+            ->group(base_path('routes/auth.php'));
+    }
+
+    protected function mapHomeApiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('auth:api')
+            ->namespace($this->namespace . '\API\Home')
+            ->group(base_path('routes/home.php'));
+    }
+
+    protected function mapAclApiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('auth:api')
+            ->namespace($this->namespace . '\API\Auth')
+            ->group(base_path('routes/acl.php'));
+    }
+
+    protected function mapSettingsApiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('auth:api')
+            ->namespace($this->namespace . '\API\Settings')
+            ->group(base_path('routes/settings.php'));
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
