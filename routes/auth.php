@@ -13,7 +13,8 @@ use Illuminate\Http\Request;
 |
  */
 
-Route::post('/logout', 'API\Auth\AuthController@logout');
+Route::post('/logout', 'AuthController@logout');
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 });

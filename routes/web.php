@@ -11,6 +11,9 @@
 |
  */
 
+
+
+//  This route should be loaded in the end of the file.
 Route::get('{path}', function () {
     return view('index');
 })->where('path', '(.*)');

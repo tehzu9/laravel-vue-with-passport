@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\API\Auth;
+namespace Api\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
+use Model\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 

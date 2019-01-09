@@ -8,6 +8,10 @@ export default {
 
   metaInfo() {
     return { title: this.$t("home") };
+  },
+
+  created() {
+    console.log(this.$store.getters["auth/user"]);
   }
 };
 </script>

@@ -14,3 +14,8 @@ use Illuminate\Http\Request;
  */
 
 // Route::get('/manage_roles', 'AclController');
+
+Route::get('/acl/members', function () {
+    return "Home Screen";
+});
+

@@ -10,3 +10,9 @@ use Illuminate\Http\Request;
 |   Settings Routes
 |
  */
+
+
+Route::get('/settings', function () {
+    return "Settings Screen";
+});
+

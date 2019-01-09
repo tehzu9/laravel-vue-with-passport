@@ -48,7 +48,9 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Model\\": "app/Models",
+            "Api\\": "app/Http/Controllers/API/"
         },
         "classmap": [
             "database/seeds",

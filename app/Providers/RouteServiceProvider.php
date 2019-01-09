@@ -14,7 +14,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    protected $appNamespace = 'App\Http\Controllers';
+    protected $apiNamespace = 'Api';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -37,8 +38,6 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
-
         $this->mapAuthApiRoutes();
 
         $this->mapHomeApiRoutes();
@@ -47,7 +46,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapSettingsApiRoutes();
 
-
+        // This should be loaded in the end.
+        $this->mapWebRoutes();
     }
 
     /**
@@ -60,7 +60,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-            ->namespace($this->namespace)
+            ->namespace($this->appNamespace)
             ->group(base_path('routes/web.php'));
     }
 
@@ -75,7 +75,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('api')
-            ->namespace($this->namespace . '\API')
+            ->namespace($this->apiNamespace)
             ->group(base_path('routes/api.php'));
     }
 
@@ -83,7 +83,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('auth:api')
-            ->namespace($this->namespace . '\API\Auth')
+            ->namespace($this->apiNamespace . '\Auth')
             ->group(base_path('routes/auth.php'));
     }
 
@@ -91,7 +91,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('auth:api')
-            ->namespace($this->namespace . '\API\Home')
+            ->namespace($this->apiNamespace . '\Home')
             ->group(base_path('routes/home.php'));
     }
 
@@ -99,7 +99,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('auth:api')
-            ->namespace($this->namespace . '\API\Auth')
+            ->namespace($this->apiNamespace . '\Auth')
             ->group(base_path('routes/acl.php'));
     }
 
@@ -107,7 +107,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('auth:api')
-            ->namespace($this->namespace . '\API\Settings')
+            ->namespace($this->apiNamespace . '\Settings')
             ->group(base_path('routes/settings.php'));
     }
 

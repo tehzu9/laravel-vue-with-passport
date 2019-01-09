@@ -13,3 +13,8 @@ use Illuminate\Http\Request;
 
 
 // Route::controller('/home', 'HomeController@index');
+
+Route::get('/home/controller', function () {
+    return "Home Screen";
+});
+
