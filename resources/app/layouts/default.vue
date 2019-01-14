@@ -1,21 +1,26 @@
 <template>
-  <div class="main-layout">
+  <div class="main-layout container-fluid m-0">
     <navbar/>
+    <div class="row">
+      <sidebar/>
 
-    <div class="container mt-4">
-      <child/>
+      <div class="container col-10 pl-0">
+        <child/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Navbar from '~/components/Navbar'
+import Navbar from "~/components/Navbar";
+import Sidebar from "~/components/Sidebar";
 
 export default {
-  name: 'MainLayout',
+  name: "MainLayout",
 
   components: {
-    Navbar
+    Navbar,
+    Sidebar
   }
-}
+};
 </script>
