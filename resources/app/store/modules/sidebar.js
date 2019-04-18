@@ -42,18 +42,18 @@ export const mutations = {
 
 // actions
 export const actions = {
-    set_sidebar({
-        commit
-    }, payload) {
-        try {
-            const {
-                data
-            } = await Axios.get('/api/sidebar');
-            commit(types.SET_SIDEBAR, {
-                sidebar_nav: data
-            });
-        } catch (e) {
-            commit(types.FETCH_SIDEBAR_FAILURE);
-        }
-    };
+    // set_sidebar({
+    //     commit
+    // }, payload) {
+    //     try {
+    //         const {
+    //             data
+    //         } = await Axios.get('/api/sidebar');
+    //         commit(types.SET_SIDEBAR, {
+    //             sidebar_nav: data
+    //         });
+    //     } catch (e) {
+    //         commit(types.FETCH_SIDEBAR_FAILURE);
+    //     }
+    // }
 }
